@@ -23,9 +23,11 @@ if ["$choice" == "install"]; then
     wget https://launcher.mojang.com/v1/objects/b58b2ceb36e01bcd8dbf49c8fb66c55a9f0676cd/server.jar
 
     echo "Success ! "
+    exit 1
     
     else
     echo "This minecraft version is unsupported..."
+    exit 1
     
   fi
 
@@ -34,13 +36,18 @@ if ["$choice" == "install"]; then
   cd
   rm -rf Minecraft
   echo "Success ! "
+  exit 1
 
   elif ["$choice" == "help"]; then
 
     echo "Help : "
     echo "install : Install and run an new mincraft server"  
     echo "remove : Remove the current minecraft server"
+    exit 1
     
   else
+
+  echo "Please choose a valid option."
+  exit 1
   
 fi
