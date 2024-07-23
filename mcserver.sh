@@ -8,6 +8,7 @@ if [ -z "$1" ]; then
 fi
 
 function update {
+  cd
   sudo apt update
   sudo apt upgrade
   sudo apt install default-jre
