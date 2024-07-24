@@ -19,10 +19,11 @@ if ["$choice" == "install"]; then
   read choice
 
   if ["$choice" == "1.8.9"] then
-
+    
     wget https://launcher.mojang.com/v1/objects/b58b2ceb36e01bcd8dbf49c8fb66c55a9f0676cd/server.jar
+    java -Xmx1024M -Xms1024M -jar server.jar nogui
 
-    echo "Success ! "
+    echo "The server is running !"
     exit 1
     
     else
@@ -34,20 +35,29 @@ if ["$choice" == "install"]; then
   elif ["$choice" == "remove"]; then
 
   cd
-  rm -rf Minecraft
-  echo "Success ! "
-  exit 1
+  read choice
+  if ["$choice" == "yes"]; then 
+      rm -rf Minecraft
+      echo "The server is removed !"
+  fi
+
+  elif ["$choice" == "run"]; then
+
+  cd Minecraft
+  java -Xmx1024M -Xms1024M -jar server.jar nogui
+
 
   elif ["$choice" == "help"]; then
 
     echo "Help : "
     echo "install : Install and run an new mincraft server"  
+    echo "run : run the current mincraft server"  
     echo "remove : Remove the current minecraft server"
-    exit 1
     
   else
 
   echo "Please choose a valid option."
-  exit 1
   
 fi
+
+echo "The program ended."
